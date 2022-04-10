@@ -32,15 +32,15 @@ export const Options = styled.div`
         transform: scale(1.15);
     }
     
-@media (max-width: 800px) {
-    left: 0;
-    right: 0;
+    @media (max-width: 800px) {
+        left: 0;
+        right: 0;
 
-    img {
-        width: 30px;
-        padding: 0 10px;
+        img {
+            width: 30px;
+            padding: 0 10px;
+        }
     }
-}
 `;
 
 export const Recent = styled.div`
@@ -196,6 +196,28 @@ export const Create = styled.div`
 
     @media (max-width: 800px) {
         background-color: transparent;
+
+        h1 {
+            font-size: 25pt;
+        }
+
+        input[type="text"], input[type="password"], input[type="number"] {
+            font-size: 12pt;
+        }
+
+        label {
+            font-size: 13pt;
+        }
+
+        input[type="checkbox"] {
+            transform: translateY(1.5px);
+        }
+
+        input[type="button"] {
+            font-size: 13pt;
+            padding: 15px 25px;
+            margin-top: 30px;
+        }
     }
 `;
 
