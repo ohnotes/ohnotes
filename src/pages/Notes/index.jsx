@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { get, post } from 'axios';
 import { Container } from './styles';
 import Options from '../../components/Options';
@@ -8,21 +9,17 @@ export default () => {
     const pass = window.location.search.split("=")[1];
 
     useEffect(() => {
-        get(`/note/${ id }?pass=${ pass }`, {
-            headers: {
-                Authorization: `Bearer ${ localStorage.getItem("token") }`
-            }
-        })
+        get(`/note/${ id }?pass=${ pass }`)
             .then(() => {
-                const recent = localStorage.getItem("recent");
+                const history = localStorage.getItem("history");
 
-                if (recent === null) {
-                    localStorage.setItem("recent", JSON.stringify([id]));
+                if (history === null) {
+                    localStorage.setItem("history", JSON.stringify([id]));
 
                 } else {
-                    const valid = JSON.parse(recent);
+                    const valid = JSON.parse(history);
  
-                    valid.forEach(i => i === id ? null: localStorage.setItem("recent", JSON.stringify([ ...valid, id ])));
+                    valid.forEach(i => i === id ? null : localStorage.setItem("recent", JSON.stringify([ ...valid, id ])));
 
                 }
             })
@@ -36,11 +33,7 @@ export default () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            get(`/note/${ id }?pass=${ pass }`, {
-                headers: {
-                    Authorization: `Bearer ${ localStorage.getItem("token") }`
-                }
-            })
+            get(`/note/${ id }?pass=${ pass }`)
                 .then(({ data: r }) => {
                     const text = document.querySelector("#text");
 
@@ -66,13 +59,15 @@ export default () => {
     return (
         <>
             <Options />
-            <Container
-                type="text"
-                placeholder="Now, you can type what you want, have fun! :)"
-                id="text"
-                spellCheck="false"
-                onChange={ () => handleUpdate() }
-            ></Container>
+            <Container>
+                <textarea
+                    type="text"
+                    placeholder="Now, you can type what you want, have fun! :)"
+                    id="text"
+                    spellCheck="false"
+                    onChange={ () => handleUpdate() }
+                />
+            </Container>
         </>
     );
 }

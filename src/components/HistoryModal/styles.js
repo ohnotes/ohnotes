@@ -16,16 +16,15 @@ export const Container = styled.div`
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
-        width: 500px;
-        height: 500px;
-        background-color: rgb(30, 30, 30);
+        transform: translate(-50%, -55%);
+        width: 30vw;
+        height: 70vh;
         text-align: center;
-        padding-top: 1px;
+        background-color: rgb(30, 30, 30);
         border-radius: 5px;
         color: white;
     }
-    
+
     img {
         position: absolute;
         top: 20px;
@@ -35,33 +34,70 @@ export const Container = styled.div`
         transition: all ease 0.5s;
         padding: 3px;
     }
-    
+
     img:hover {
         transform: scale(1.15);
     }
 
     h1 {
-        font-family: inherit;
+        color: white;
+        font-size: 20pt;
         margin-top: 50px;
         font-weight: 500;
-        font-size: 20pt;
+    }
+
+    h2 {
+        color: white;
+        font-size: 13pt;
+        font-weight: 300;
+        margin-top: -15px;
+    }
+
+    table {
+        text-align: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    a:not(:first-child) {
+        margin-top: 15px;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+
+    th {
+        font-weight: 400;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        overflow-y: scroll;
+        width: 95%;
+        height: 65%;
+
+        &::-webkit-scrollbar {
+            background-color: rgb(25, 25, 25);
+            border-radius: 5px;
+            width: 7px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background: rgb(40, 40, 40);
+            border-radius: 10px;
+        }
     }
 
     td {
-        display: flex;
-        flex-direction: row;
-        font-weight: 400;
+        color: rgb(240, 240, 240);
+        cursor: pointer;
+        transition: all ease 0.5s;
         font-size: 11pt;
-        margin: 10px 0 0 20px;
-        text-align: left;
     }
 
-    td:first-child {
-        margin-top: 0;
-    }
-
-    td::before {
-        content: '-';
-        margin-right: 5px;
+    td:hover {
+        opacity: 0.8;
+        transform: scale(1.1);
     }
 `;

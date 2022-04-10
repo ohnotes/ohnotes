@@ -1,15 +1,17 @@
 import { render } from 'react-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { GlobalStyle } from './style/globalStyle';
-
+import { defaults } from 'axios';
 import Home from './pages/Home';
 import Notes from './pages/Notes';
 import NotFound from './pages/404';
 import Forbidden from './pages/403';
 
+defaults.baseURL = 'http://localhost:3001';
+defaults.headers.common.Authorization = `Bearer ${ localStorage.getItem("token") }`;
+defaults.headers.post['Content-Type'] = 'application/json';
+
 render (
     <BrowserRouter>
-        <GlobalStyle />
         <Routes>
             <Route exact path="/" element={ <Home /> }></Route>
             <Route path="/notes/:id" element={ <Notes /> }></Route>

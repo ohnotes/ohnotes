@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Options, Recent, Create, Owned } from './styles';
+import { Container, Options, Create } from './styles';
 import { get, post } from 'axios';
 import { ToastContainer } from 'react-toastify';
 import { success, error } from '../../utils/notify';
 import ChangelogModal from '../../components/ChangelogModal';
+import HistoryModal from '../../components/HistoryModal';
+import OwnedModal from '../../components/OwnedModal';
 import User from '../../assets/user.svg';
 import Changelog from '../../assets/changelog.svg';
 import History from '../../assets/history.svg';
 import List from '../../assets/list.svg';
+import Wipe from '../../assets/wipe.svg';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default () => {
-    const [ recent, setRecent ] = useState([]);
-    const [ owned, setOwned ] = useState([]);
-    const [ changelogModal, setChangelogModal ] = useState(false);
+    const [ historyModal, setHistoryModalOpen ] = useState(false);
+    const [ ownedModal, setOwnedModalOpen ] = useState(false);
+    const [ changelogModal, setChangelogModalOpen ] = useState(false);
     const [ isPrivate, setIsPrivate ] = useState(false);
     const [ isDestructive, setIsDestructive ] = useState(false);
 
     useEffect(() => {
-        const recentList = localStorage.getItem("recent");
         const user = localStorage.getItem("user");
         const token = localStorage.getItem("token");
 
@@ -32,31 +34,10 @@ export default () => {
             })();
         }
 
-        if (recentList !== null) {
-            const list = JSON.parse(recentList);
-
-            setRecent(list.slice(Math.max(list.length - 4, 0)));
-        }
-        
-        get(`/getNotes`, {
-            headers: {
-                'Authorization': `Bearer ${ localStorage.getItem("token") }`
-            }
-        })
-            .then(r => {
-                if (r.data !== null) {
-                    const list = [];
-                    r.data.forEach(i => list.push(i.id));
-
-                    setOwned(list);
-                }
-            });
-
     }, [window.onload]);
 
     const handlePrivate = () => setIsPrivate(document.querySelector("#private").checked);
     const handleDestructive = () => setIsDestructive(document.querySelector("#destructive").checked);
-    const handleChangelog = () => setChangelogModal(true);
     
     const handleSubmit = () => {
         const name = document.querySelector("#name");
@@ -91,10 +72,6 @@ export default () => {
             createdAt: new Date().toUTCString(),
             destructive: isDestructive,
             turns: parseInt(turns.value)
-        }, {
-            headers: {
-                Authorization: `Bearer ${ localStorage.getItem("token") }`
-            }
         })
             .then(r => window.location = `/notes/${ r.data.id }`)
     }
@@ -110,29 +87,33 @@ export default () => {
         });
     }
 
+    const handleWipe = () => {
+        if (confirm("Are you sure you want WIPE ALL DATA? Includes user and notes data.")) {
+            get(`/wipe`)
+                .then(() => {
+                    localStorage.clear();
+                    window.location.reload();
+
+                })
+
+                .catch(() => error("Failed to wipe data."));
+        }
+    }
+
     return (
         <>
-            { changelogModal && <ChangelogModal modal={ setChangelogModal } /> }
+            <ToastContainer />
+            { changelogModal && <ChangelogModal open={ setChangelogModalOpen } /> }
+            { historyModal && <HistoryModal open={ setHistoryModalOpen } error={ error } /> }
+            { ownedModal && <OwnedModal open={ setOwnedModalOpen } error={ error } /> }
             <Container>
                 <Options>
                     <img src={ User } title="Copy user ID" width="24" onClick={ () => handleCopyUser() } />
-                    <img src={ Changelog } title="Changelog" width="24" onClick={ () => handleChangelog() } />
-                    <img src={ History } title="History" width="24" onClick={ () => handleHistory() } />
-                    <img src={ List } title="Owned" width="24" onClick={ () => handleOwned() } />
+                    <img src={ Changelog } title="Changelog" width="24" onClick={ () => setChangelogModalOpen(true) } />
+                    <img src={ History } title="History" width="24" onClick={ () => setHistoryModalOpen(true) } />
+                    <img src={ List } title="Owned" width="24" onClick={ () => setOwnedModalOpen(true) } />
+                    <img src={ Wipe } title="Wipe data" width="24" onClick={ () => handleWipe() } />
                 </Options>
-                <ToastContainer></ToastContainer>
-                <Recent hidden>
-                    <h1>Recent</h1>
-                    <table>
-                        <th>
-                            { recent.length != 0 &&
-                                recent.map(i => (
-                                    <a href={ `${ window.location.href }notes/${ i }` }><td>{ i }</td></a>
-                                ))
-                            }
-                        </th>
-                    </table>
-                </Recent>
                 <Create id="create">
                     <h1>Create</h1>
                     <input type="text" id="name" placeholder="Name" autoComplete="off" required /><br />
@@ -151,18 +132,6 @@ export default () => {
                     <label for="destructive">Destructive</label><br />
                     <input type="button" id="submit" value="Create" onClick={ () => handleSubmit() } />
                 </Create>
-                <Owned hidden>
-                    <h1>Owned</h1>
-                    <table>
-                        <th>
-                            { owned.length != 0 &&
-                                owned.map(i => (
-                                    <a href={ `${ window.location.href }notes/${ i }` }><td>{ i }</td></a>
-                                ))
-                            }
-                        </th>
-                    </table>
-                </Owned>
             </Container>
         </>
     );

@@ -13,11 +13,7 @@ export default props => {
 
     useEffect(() => {
         (async () => {
-            get(`/note/${ props.id }?pass=${ pass }`, {
-                headers: {
-                    Authorization: `Bearer ${ localStorage.getItem("token") }`
-                }
-            })
+            get(`/note/${ props.id }?pass=${ pass }`)
                 .then(({ data: r }) => {
                     document.querySelector("#name").value = r.name;
                     document.querySelector("#observation").value = r.observation;
@@ -48,10 +44,6 @@ export default props => {
             observation,
             private: isPrivate,
             password: password.value
-        }, {
-            headers: {
-                Authorization: `Bearer ${ localStorage.getItem("token") }`
-            }
         })
             .then(() => success("Saved succesfully."))
             .catch(() => error("You don't have permission to do that."));
@@ -61,11 +53,7 @@ export default props => {
         props.open(false);
 
         if (confirm("Are you sure you want to delete the note?")) {
-            post(`/delete/${ props.id }`, {}, {
-                headers: {
-                    Authorization: `Bearer ${ localStorage.getItem("token") }`
-                }
-            })
+            post(`/delete/${ props.id }`, {})
                 .catch(() => error("You don't have permission to do that."));    
         }
     }

@@ -43,53 +43,6 @@ export const Options = styled.div`
     }
 `;
 
-export const Recent = styled.div`
-    text-align: center;
-    margin: 0 auto;
-    width: 350px;
-    height: 350px;
-    border-radius: 6px;
-    background-color: rgb(35, 35, 35);
-    margin-top: 24vh;
-    
-    h1 {
-        color: white;
-        font-size: 20pt;
-        font-weight: 500;
-    }
-
-    table {
-        text-align: center;
-        width: 100%;
-    }
-
-    a:not(:first-child) {
-        margin-top: 15px;
-    }
-    
-    a {
-        text-decoration: none;
-    }
-
-    th {
-        font-weight: 400;
-        display: flex;
-        flex-direction: column;
-    }
-
-
-    td {
-        color: rgb(240, 240, 240);
-        cursor: pointer;
-        transition: all ease 0.5s;
-    }
-
-    td:hover {
-        opacity: 0.8;
-        transform: scale(1.1);
-    }
-`;
-
 export const Create = styled.div`
     text-align: center;
     margin: 0 auto;
@@ -218,66 +171,5 @@ export const Create = styled.div`
             padding: 15px 25px;
             margin-top: 30px;
         }
-    }
-`;
-
-export const Owned = styled.div`
-    text-align: center;
-    margin: 0 auto;
-    width: 350px;
-    height: 350px;
-    border-radius: 6px;
-    background-color: rgb(35, 35, 35);
-    margin-top: 24vh;
-
-    h1 {
-        color: white;
-        font-size: 20pt;
-        font-weight: 500;
-    }
-
-    table {
-        text-align: center;
-        width: 100%;
-    }
-
-    a:not(:first-child) {
-        margin-top: 15px;
-    }
-    
-    a {
-        text-decoration: none;
-    }
-
-    th {
-        font-weight: 400;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        overflow-y: scroll;
-        height: 250px;
-        width: 95%;
-
-        &::-webkit-scrollbar {
-            background-color: rgb(25, 25, 25);
-            border-radius: 5px;
-            width: 7px;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background: rgb(40, 40, 40);
-            border-radius: 10px;
-        }
-    }
-
-    td {
-        color: rgb(240, 240, 240);
-        cursor: pointer;
-        transition: all ease 0.5s;
-    }
-
-    td:hover {
-        opacity: 0.8;
-        transform: scale(1.1);
     }
 `;
