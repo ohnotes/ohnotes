@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "axios": "^0.26.1",
     "react": "^18.0.0",

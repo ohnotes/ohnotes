@@ -7,9 +7,7 @@ export const Container = styled.div`
     section {
         position: fixed;
         top: 0;
-        bottom: 0;
-        left: 0;
-        right: -102vw;
+        right: -1.5vw;
         z-index: 1;
         background-color: blue;
         height: 0;
@@ -19,7 +17,7 @@ export const Container = styled.div`
     }
 
     section:hover {
-        right: -75vw;
+        right: 12vw;
     }
 
     section ul {

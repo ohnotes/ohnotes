@@ -14,18 +14,18 @@ export const Container = styled.div`
     font-family: 'JetBrains Mono', monospace;
     display: inline-flex;
     
-    img {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        cursor: pointer;
-        border-radius: 50%;
-        transition: all ease 0.5s;
-        padding: 3px;
-    }
+`;
 
-    img:not(:first-child) {
-        left: 45px;
+export const Options = styled.div`
+    position: absolute;
+    top: 15px;
+    left: 10px;
+
+    img {
+        display: inline;
+        cursor: pointer;
+        transition: all ease 0.5s;
+        padding: 0 8px;
     }
     
     img:hover {
@@ -194,7 +194,7 @@ export const Owned = styled.div`
     border-radius: 6px;
     background-color: rgb(35, 35, 35);
     margin-top: 24vh;
-    
+
     h1 {
         color: white;
         font-size: 20pt;
@@ -222,6 +222,17 @@ export const Owned = styled.div`
         overflow-y: scroll;
         height: 250px;
         width: 95%;
+
+        &::-webkit-scrollbar {
+            background-color: rgb(25, 25, 25);
+            border-radius: 5px;
+            width: 7px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgb(40, 40, 40);
+            border-radius: 10px;
+        }
     }
 
     td {

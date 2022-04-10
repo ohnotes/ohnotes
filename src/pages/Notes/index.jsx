@@ -8,7 +8,7 @@ export default () => {
     const pass = window.location.search.split("=")[1];
 
     useEffect(() => {
-        get(`http://localhost:3001/note/${ id }?pass=${ pass }`, {
+        get(`/note/${ id }?pass=${ pass }`, {
             headers: {
                 Authorization: `Bearer ${ localStorage.getItem("token") }`
             }
@@ -29,14 +29,14 @@ export default () => {
             
             .catch(e => String(e).includes("404") ? window.location.href = "/404" : null);
         
-        get(`http://localhost:3001/destructive/${ id }`)
+        get(`/destructive/${ id }`)
             .catch(() => window.location.href = "/403");
     
     }, [window.onload]);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            get(`http://localhost:3001/note/${ id }?pass=${ pass }`, {
+            get(`/note/${ id }?pass=${ pass }`, {
                 headers: {
                     Authorization: `Bearer ${ localStorage.getItem("token") }`
                 }
@@ -56,7 +56,7 @@ export default () => {
     }, []);
 
     const handleUpdate = () => {
-        post(`http://localhost:3001/update/${ id }`, {
+        post(`/update/${ id }`, {
             id,
             text: document.querySelector("#text").value,
             lastUpdate: new Date().toUTCString()
@@ -66,15 +66,13 @@ export default () => {
     return (
         <>
             <Options />
-            <Container>
-                <textarea
-                    type="text"
-                    placeholder="Now, you can type what you want, have fun! :)"
-                    id="text"
-                    spellCheck="false"
-                    onChange={ () => handleUpdate() }
-                />
-            </Container>
+            <Container
+                type="text"
+                placeholder="Now, you can type what you want, have fun! :)"
+                id="text"
+                spellCheck="false"
+                onChange={ () => handleUpdate() }
+            ></Container>
         </>
     );
 }

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Recent, Create, Owned } from './styles';
+import { Container, Options, Recent, Create, Owned } from './styles';
 import { get, post } from 'axios';
 import { ToastContainer } from 'react-toastify';
 import { success, error } from '../../utils/notify';
+import ChangelogModal from '../../components/ChangelogModal';
 import User from '../../assets/user.svg';
 import Changelog from '../../assets/changelog.svg';
-import ChangelogModal from '../../components/ChangelogModal';
+import History from '../../assets/history.svg';
+import List from '../../assets/list.svg';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default () => {
@@ -22,7 +24,7 @@ export default () => {
 
         if (user === null || token === null) {
             (async () => {
-                await post("http://localhost:3001/generate")
+                await post("/generate")
                     .then(r => {
                         localStorage.setItem("token", r.data.token);
                         localStorage.setItem("user", r.data.id);
@@ -36,7 +38,7 @@ export default () => {
             setRecent(list.slice(Math.max(list.length - 4, 0)));
         }
         
-        get(`http://localhost:3001/getNotes`, {
+        get(`/getNotes`, {
             headers: {
                 'Authorization': `Bearer ${ localStorage.getItem("token") }`
             }
@@ -80,7 +82,7 @@ export default () => {
             return error("Times field is required.");
         }
 
-        post("http://localhost:3001/new", {
+        post("/new", {
             name: name.value,
             observation: observation.value,
             private: isPrivate,
@@ -112,10 +114,14 @@ export default () => {
         <>
             { changelogModal && <ChangelogModal modal={ setChangelogModal } /> }
             <Container>
-                <img src={ User } title="Copy user ID" width="24" onClick={ () => handleCopyUser() } />
-                <img src={ Changelog } title="Changelog" width="24" onClick={ () => handleChangelog() } />
+                <Options>
+                    <img src={ User } title="Copy user ID" width="24" onClick={ () => handleCopyUser() } />
+                    <img src={ Changelog } title="Changelog" width="24" onClick={ () => handleChangelog() } />
+                    <img src={ History } title="History" width="24" onClick={ () => handleHistory() } />
+                    <img src={ List } title="Owned" width="24" onClick={ () => handleOwned() } />
+                </Options>
                 <ToastContainer></ToastContainer>
-                <Recent>
+                <Recent hidden>
                     <h1>Recent</h1>
                     <table>
                         <th>
@@ -145,7 +151,7 @@ export default () => {
                     <label for="destructive">Destructive</label><br />
                     <input type="button" id="submit" value="Create" onClick={ () => handleSubmit() } />
                 </Create>
-                <Owned>
+                <Owned hidden>
                     <h1>Owned</h1>
                     <table>
                         <th>

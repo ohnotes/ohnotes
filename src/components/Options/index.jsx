@@ -19,7 +19,7 @@ export default () => {
     const handleShare = () => {
         navigator.permissions.query({ name: "clipboard-write" }).then(r => {
             if (r.state == "granted" || r.state == "prompt") {
-                get(`http://localhost:3001/note/${ id }?pass=${ pass }`, {
+                get(`/note/${ id }?pass=${ pass }`, {
                     headers: {
                         Authorization: `Bearer ${ localStorage.getItem("token") }`
                     }

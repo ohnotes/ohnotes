@@ -1,5 +1,6 @@
 import { render } from 'react-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { GlobalStyle } from './style/globalStyle';
 
 import Home from './pages/Home';
 import Notes from './pages/Notes';
@@ -8,6 +9,7 @@ import Forbidden from './pages/403';
 
 render (
     <BrowserRouter>
+        <GlobalStyle />
         <Routes>
             <Route exact path="/" element={ <Home /> }></Route>
             <Route path="/notes/:id" element={ <Notes /> }></Route>

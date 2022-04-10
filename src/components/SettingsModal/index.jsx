@@ -13,7 +13,7 @@ export default props => {
 
     useEffect(() => {
         (async () => {
-            get(`http://localhost:3001/note/${ props.id }?pass=${ pass }`, {
+            get(`/note/${ props.id }?pass=${ pass }`, {
                 headers: {
                     Authorization: `Bearer ${ localStorage.getItem("token") }`
                 }
@@ -43,7 +43,7 @@ export default props => {
 
         }
 
-        post(`http://localhost:3001/update/${ props.id }/settings`, {
+        post(`/update/${ props.id }/settings`, {
             name,
             observation,
             private: isPrivate,
@@ -61,7 +61,7 @@ export default props => {
         props.open(false);
 
         if (confirm("Are you sure you want to delete the note?")) {
-            post(`http://localhost:3001/delete/${ props.id }`, {}, {
+            post(`/delete/${ props.id }`, {}, {
                 headers: {
                     Authorization: `Bearer ${ localStorage.getItem("token") }`
                 }
