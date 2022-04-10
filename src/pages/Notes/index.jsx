@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
 import { get, post } from 'axios';
 import { Container } from './styles';
 import Options from '../../components/Options';
@@ -61,7 +60,6 @@ export default () => {
             <Options />
             <Container>
                 <textarea
-                    type="text"
                     placeholder="Now, you can type what you want, have fun! :)"
                     id="text"
                     spellCheck="false"

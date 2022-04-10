@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.21d34220.css",
-    "main.js": "/static/js/main.8ebe9145.js",
+    "main.js": "/static/js/main.dab47945.js",
     "static/media/notfound.png": "/static/media/notfound.aa3ef0c017e23bac567e.png",
     "static/media/forbidden.png": "/static/media/forbidden.2ebea1f9e521f2a45c90.png",
     "static/media/settings.svg": "/static/media/settings.1bb983e646ab2a4879b7382dce344ca7.svg",
@@ -22,6 +22,6 @@
   },
   "entrypoints": [
     "static/css/main.21d34220.css",
-    "static/js/main.8ebe9145.js"
+    "static/js/main.dab47945.js"
   ]
 }

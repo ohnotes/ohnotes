@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400&display=swap');
-   
     background-color: rgb(20, 20, 20);
     position: absolute;
     top: 0;
@@ -11,9 +9,7 @@ export const Container = styled.div`
     height: 100vh;
     margin: 0;
     text-align: center;
-    font-family: 'JetBrains Mono', monospace;
     display: inline-flex;
-    
 `;
 
 export const Options = styled.div`
@@ -63,7 +59,6 @@ export const Create = styled.div`
     }
 
     input[type="text"], input[type="password"], input[type="number"] {
-        font-family: 'JetBrains Mono', monospace;
         border: 1px solid #6544DB;
         background-color: rgb(25, 25, 25);
         color: white;
@@ -136,7 +131,6 @@ export const Create = styled.div`
         color: white;
         background-color: #6544DB;
         font-weight: 500;
-        font-family: 'JetBrains Mono', monospace;
         border-radius: 4px;
         padding: 12px 20px;
         margin-top: 25px;

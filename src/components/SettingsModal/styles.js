@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400&display=swap');
-    
-    font-family: "JetBrains Mono", monospace;
     position: absolute;
     top: 0;
     left: 0;
@@ -65,7 +62,6 @@ export const Container = styled.div`
     }    
 
     input[type="text"], input[type="password"] {
-        font-family: 'JetBrains Mono', monospace;
         border: 1px solid #6544DB;
         background-color: rgb(25, 25, 25);
         color: white;
@@ -103,7 +99,6 @@ export const Container = styled.div`
         appearance: none;
         background-color: transparent;
         margin: 0;
-        font: inherit;
         width: 16px;
         height: 16px;
         border: 2px solid #6544DB;
@@ -127,7 +122,6 @@ export const Container = styled.div`
     input[type="button"] {
         padding: 10px 20px;
         border: none;
-        font-family: "JetBrains Mono", monospace;
         margin: 0 10px;
         width: 90px;
         border-radius: 5px;

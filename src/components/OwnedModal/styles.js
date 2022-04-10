@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400&display=swap');
-    
-    font-family: "JetBrains Mono", monospace;
     position: absolute;
     top: 0;
     left: 0;
