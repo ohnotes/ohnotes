@@ -31,6 +31,16 @@ export const Options = styled.div`
     img:hover {
         transform: scale(1.15);
     }
+    
+@media (max-width: 800px) {
+    left: 0;
+    right: 0;
+
+    img {
+        width: 30px;
+        padding: 0 10px;
+    }
+}
 `;
 
 export const Recent = styled.div`
@@ -88,7 +98,6 @@ export const Create = styled.div`
     width: 450px;
     height: 420px;
     border-radius: 6px;
-
 
     h1 {
         color: white;
@@ -183,6 +192,10 @@ export const Create = styled.div`
 
     input[type="button"]:hover {
         transform: scale(1.1);
+    }
+
+    @media (max-width: 800px) {
+        background-color: transparent;
     }
 `;
 
