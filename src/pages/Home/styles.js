@@ -12,37 +12,11 @@ export const Container = styled.div`
     display: inline-flex;
 `;
 
-export const Options = styled.div`
-    position: absolute;
-    top: 15px;
-    left: 10px;
-
-    img {
-        display: inline;
-        cursor: pointer;
-        transition: all ease 0.5s;
-        padding: 0 8px;
-    }
-    
-    img:hover {
-        transform: scale(1.15);
-    }
-    
-    @media (max-width: 800px) {
-        left: 0;
-        right: 0;
-
-        img {
-            width: 30px;
-            padding: 0 10px;
-        }
-    }
-`;
 
 export const Create = styled.div`
     text-align: center;
     margin: 0 auto;
-    margin-top: 18vh;
+    margin-top: 10vh;
     background-color: rgb(35, 35, 35);
     width: 450px;
     height: 420px;

@@ -13,13 +13,20 @@ export const Container = styled.div`
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -55%);
+        transform: translate(-50%, -50%);
         width: 30vw;
         height: 70vh;
         text-align: center;
         background-color: rgb(30, 30, 30);
         border-radius: 5px;
         color: white;
+        animation: 0.5s ease-out slideModal;
+    }
+    
+    @keyframes slideModal {
+        from {
+            transform: translate(-50%, -100%)
+        }
     }
 
     img {
@@ -52,8 +59,8 @@ export const Container = styled.div`
 
     table {
         text-align: center;
-        width: 100%;
-        height: 100%;
+        width: 95%;
+        height: 65%;
     }
 
     a:not(:first-child) {
@@ -79,8 +86,8 @@ export const Container = styled.div`
         align-items: center;
         overflow: hidden;
         overflow-y: scroll;
-        width: 95%;
-        height: 65%;
+        width: 100%;
+        height: 100%;
 
         &::-webkit-scrollbar {
             background-color: rgb(25, 25, 25);
@@ -104,5 +111,29 @@ export const Container = styled.div`
     td:hover {
         opacity: 0.8;
         transform: scale(1.1);
+    }
+    
+    @media (max-width: 800px) {
+        section:first-child {
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            width: 36px;
+        }
+
+        h1 {
+            font-size: 22pt;
+        }
+
+        h2 {
+            font-size: 16pt;
+        }
+
+        th {
+            width: 100%;
+            height: 100%;
+        }
     }
 `;

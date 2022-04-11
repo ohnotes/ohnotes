@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { get, post } from 'axios';
 import { Container } from './styles';
 import Options from '../../components/Options';
 
 export default () => {
+    const [ standard, setStandard ] = useState(false);
     const id = window.location.pathname.split("/")[2];
     const pass = window.location.search.split("=")[1];
 
@@ -27,7 +28,20 @@ export default () => {
         
         get(`/destructive/${ id }`)
             .catch(() => window.location.href = "/403");
-    
+        
+        const handleResize = () => {
+            if (window.innerWidth < 800) {
+                setStandard(false);
+        
+            } else {
+                setStandard(true);
+
+            }
+        }
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
     }, [window.onload]);
 
     useEffect(() => {
@@ -57,7 +71,7 @@ export default () => {
 
     return (
         <>
-            <Options />
+            <Options standard={ standard } />
             <Container>
                 <textarea
                     placeholder="Now, you can type what you want, have fun! :)"

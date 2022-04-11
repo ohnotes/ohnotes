@@ -21,6 +21,13 @@ export const Container = styled.div`
         padding-top: 1px;
         border-radius: 5px;
         color: white;
+        animation: 0.5s ease-out slideModal;
+    }
+    
+    @keyframes slideModal {
+        from {
+            transform: translate(-50%, -100%)
+        }
     }
 
     img {
@@ -87,7 +94,6 @@ export const Container = styled.div`
     }
     
     label {
-        font-family: 'JetBrains Mono', monospace;
         font-size: 11pt;
         color: white;
         cursor: pointer;
@@ -136,5 +142,37 @@ export const Container = styled.div`
     
     input[type="button"][disabled] {
         opacity: 0.5;
+    }
+
+    @media (max-width: 800px) {
+        section:first-child {
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            width: 32px;
+        }
+
+        img:nth-last-child(2n) {
+            left: 65px;
+        }
+
+        h1 {
+            font-size: 22pt;
+        }
+
+        input[type="text"] {
+            font-size: 13pt;
+        }
+
+        label {
+            font-size: 13pt;
+        }
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+        }
     }
 `;

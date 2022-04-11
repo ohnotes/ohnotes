@@ -5,19 +5,10 @@ import Close from '../../assets/close.svg';
 export default props => {
     const [ history, setHistory ] = useState([]);
 
-    useEffect(() => {
-        const history = localStorage.getItem("history");
+    useEffect(() =>
+        setHistory(JSON.parse(localStorage.getItem("history")).reverse())
 
-        if (history === null) {
-            props.open(false);
-            props.error("You don't have a history.")
-            
-            return
-        }
-        
-        setHistory(JSON.parse(history).reverse());
-
-    }, [window.onload]);
+    , [window.onload]);
 
     return (
         <Container>

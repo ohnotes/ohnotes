@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Options, Create } from './styles';
-import { get, post } from 'axios';
+import { Container, Create } from './styles';
+import { post } from 'axios';
 import { ToastContainer } from 'react-toastify';
-import { success, error } from '../../utils/notify';
-import ChangelogModal from '../../components/ChangelogModal';
+import { error } from '../../utils/notify';
 import HistoryModal from '../../components/HistoryModal';
 import OwnedModal from '../../components/OwnedModal';
-import User from '../../assets/user.svg';
-import Changelog from '../../assets/changelog.svg';
-import History from '../../assets/history.svg';
-import List from '../../assets/list.svg';
-import Wipe from '../../assets/wipe.svg';
+import HomeSettingsModal from '../../components/HomeSettingsModal';
+import HomeOptions from '../../components/HomeOptions';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default () => {
+    const [ homeSettingsModal, setHomeSettingsModalOpen ] = useState(false);
     const [ historyModal, setHistoryModalOpen ] = useState(false);
     const [ ownedModal, setOwnedModalOpen ] = useState(false);
-    const [ changelogModal, setChangelogModalOpen ] = useState(false);
     const [ isPrivate, setIsPrivate ] = useState(false);
     const [ isDestructive, setIsDestructive ] = useState(false);
+    const [ standard, setStandard ] = useState(true);
+    const [ owned, setOwned ] = useState([]);
 
     useEffect(() => {
         const user = localStorage.getItem("user");
@@ -33,6 +31,22 @@ export default () => {
                     });
             })();
         }
+
+    }, [window.onload]);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 800) {
+                setStandard(false);
+        
+            } else {
+                setStandard(true);
+
+            }
+        }
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
 
     }, [window.onload]);
 
@@ -76,44 +90,20 @@ export default () => {
             .then(r => window.location = `/notes/${ r.data.id }`)
     }
 
-    const handleCopyUser = () => {
-        navigator.permissions.query({ name: "clipboard-write" }).then(r => {
-            if (r.state == "granted" || r.state == "prompt") {
-                navigator.clipboard.writeText(localStorage.getItem("user"));
-            
-            }
-
-            return success("User ID copied to clipboard.");
-        });
-    }
-
-    const handleWipe = () => {
-        if (confirm("Are you sure you want WIPE ALL DATA? Includes user and notes data.")) {
-            get(`/wipe`)
-                .then(() => {
-                    localStorage.clear();
-                    window.location.reload();
-
-                })
-
-                .catch(() => error("Failed to wipe data."));
-        }
-    }
-
     return (
         <>
             <ToastContainer />
-            { changelogModal && <ChangelogModal open={ setChangelogModalOpen } /> }
+            { homeSettingsModal && <HomeSettingsModal open={ setHomeSettingsModalOpen } /> }
             { historyModal && <HistoryModal open={ setHistoryModalOpen } error={ error } /> }
-            { ownedModal && <OwnedModal open={ setOwnedModalOpen } error={ error } /> }
+            { ownedModal && <OwnedModal open={ setOwnedModalOpen } error={ error } owned={ owned } /> }
             <Container>
-                <Options>
-                    <img src={ User } title="Copy user ID" width="24" onClick={ () => handleCopyUser() } />
-                    <img src={ Changelog } title="Changelog" width="24" onClick={ () => setChangelogModalOpen(true) } />
-                    <img src={ History } title="History" width="24" onClick={ () => setHistoryModalOpen(true) } />
-                    <img src={ List } title="Owned" width="24" onClick={ () => setOwnedModalOpen(true) } />
-                    <img src={ Wipe } title="Wipe data" width="24" onClick={ () => handleWipe() } />
-                </Options>
+                <HomeOptions
+                    standard={ standard }
+                    ownedopen={ setOwnedModalOpen }
+                    owned={ setOwned }
+                    historyopen={ setHistoryModalOpen }
+                    settingsopen={ setHomeSettingsModalOpen }
+                />
                 <Create id="create">
                     <h1>Create</h1>
                     <input type="text" id="name" placeholder="Name" autoComplete="off" required /><br />

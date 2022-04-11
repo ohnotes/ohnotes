@@ -14,13 +14,15 @@ export default props => {
     useEffect(() => {
         (async () => {
             get(`/note/${ props.id }?pass=${ pass }`)
-                .then(({ data: r }) => {
-                    document.querySelector("#name").value = r.name;
-                    document.querySelector("#observation").value = r.observation;
+                .then(r => {
+                    document.querySelector("#name").value = r.data.name;
+                    document.querySelector("#observation").value = r.data.observation;
 
-                    setIsPrivate(r.private);
-                    setIsOwner(r.isOwner);
+                    setIsPrivate(r.data.private);
                 });
+
+            get(`/getNotes`)
+                .then(r => r.data.forEach(i => i.id === props.id ? setIsOwner(true) : setIsOwner(false) ));
         })();
 
     }, [window.onload])
