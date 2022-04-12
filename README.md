@@ -12,8 +12,7 @@
 Contact me on z3ox1s@protonmail.com, please :).
 
 #### What this do?
-You can create and share notes, updated for each 1 second, you can talk with your friends. Focused in privacy, when entering on homepage
-for the first time, a user ID and a token is generated, no tracking or kind thing.
+You can create and share notes. Focused in privacy, when entering on homepage for the first time, a user ID and a token is generated, no tracking or kind thing.
 
 <br><a name="setup"></a>
 ## 🔧 Setup
