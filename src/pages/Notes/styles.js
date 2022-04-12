@@ -21,6 +21,23 @@ export const Container = styled.div`
         color: rgb(240, 240, 240);
     }
 
+    section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(10, 10, 10, 0.8);
+    }
+
+    section img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
     @media (max-width: 800px) {
         textarea {
             font-size: 12pt;

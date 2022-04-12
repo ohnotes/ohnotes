@@ -16,7 +16,7 @@ export const Container = styled.div`
 export const Create = styled.div`
     text-align: center;
     margin: 0 auto;
-    margin-top: 10vh;
+    margin-top: 15vh;
     background-color: rgb(35, 35, 35);
     width: 450px;
     height: 420px;
@@ -117,6 +117,7 @@ export const Create = styled.div`
 
     @media (max-width: 800px) {
         background-color: transparent;
+        margin-top: 10vh;
 
         h1 {
             font-size: 25pt;

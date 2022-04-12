@@ -15,6 +15,7 @@ export default () => {
     const [ ownedModal, setOwnedModalOpen ] = useState(false);
     const [ isPrivate, setIsPrivate ] = useState(false);
     const [ isDestructive, setIsDestructive ] = useState(false);
+    const [ isShared, setIsShared ] = useState(false);
     const [ standard, setStandard ] = useState(true);
     const [ owned, setOwned ] = useState([]);
 
@@ -28,6 +29,8 @@ export default () => {
                     .then(r => {
                         localStorage.setItem("token", r.data.token);
                         localStorage.setItem("user", r.data.id);
+
+                        window.location.reload();
                     });
             })();
         }
@@ -52,6 +55,7 @@ export default () => {
 
     const handlePrivate = () => setIsPrivate(document.querySelector("#private").checked);
     const handleDestructive = () => setIsDestructive(document.querySelector("#destructive").checked);
+    const handleShared = () => setIsShared(document.querySelector("#shared").checked);
     
     const handleSubmit = () => {
         const name = document.querySelector("#name");
@@ -85,7 +89,8 @@ export default () => {
             text: "",
             createdAt: new Date().toUTCString(),
             destructive: isDestructive,
-            turns: parseInt(turns.value)
+            turns: parseInt(turns.value),
+            shared: isShared
         })
             .then(r => window.location = `/notes/${ r.data.id }`)
     }
@@ -116,10 +121,12 @@ export default () => {
                         placeholder="Turns"
                         disabled={ !isDestructive }
                     /><br />
-                    <input type="checkbox" id="private" name="private" onChange={ () => handlePrivate() } />
+                    <input type="checkbox" id="private" onChange={ () => handlePrivate() } />
                     <label for="private">Private</label>
-                    <input type="checkbox" id="destructive" name="destructive" value="cu" onChange={ () => handleDestructive() } />
-                    <label for="destructive">Destructive</label><br />
+                    <input type="checkbox" id="destructive" onChange={ () => handleDestructive() } />
+                    <label for="destructive">Destructive</label>
+                    <input type="checkbox" id="shared" onChange={ () => handleShared() } />
+                    <label for="shared">Shared</label><br />
                     <input type="button" id="submit" value="Create" onClick={ () => handleSubmit() } />
                 </Create>
             </Container>

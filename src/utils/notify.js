@@ -12,3 +12,4 @@ const options = {
 
 export const error = msg => toast.error(msg, options);
 export const success = msg => toast.success(msg, options);
+export const info = msg => toast.warn(msg, options);
