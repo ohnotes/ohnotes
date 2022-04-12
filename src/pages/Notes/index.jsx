@@ -79,7 +79,7 @@ export default () => {
                 typed = false;
             }
             
-        }, 3000);
+        }, 1000);
 
         return () => clearInterval(interval);
     }, []);
@@ -97,7 +97,7 @@ export default () => {
 
                 .catch(e => String(e).includes("404") ? window.location.href = '/404' : null);
 
-        }, 5000);
+        }, 2000);
 
         return () => clearInterval(interval);
     }, []);
