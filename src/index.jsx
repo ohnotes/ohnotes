@@ -7,8 +7,7 @@ import Notes from './pages/Notes';
 import NotFound from './pages/404';
 import Forbidden from './pages/403';
 
-//defaults.baseURL = 'https://api-ohnotes.herokuapp.com';
-defaults.baseURL = 'http://192.168.0.102:3001';
+defaults.baseURL = 'https://api-ohnotes.herokuapp.com';
 defaults.headers.common.Authorization = `Bearer ${ localStorage.getItem("token") }`;
 defaults.headers.post['Content-Type'] = 'application/json';
 
