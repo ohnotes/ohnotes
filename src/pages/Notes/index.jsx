@@ -79,7 +79,7 @@ export default () => {
                 typed = false;
             }
             
-        }, 750);
+        }, 1500);
 
         return () => clearInterval(interval);
     }, []);
