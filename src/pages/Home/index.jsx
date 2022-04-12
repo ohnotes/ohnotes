@@ -55,7 +55,6 @@ export default () => {
 
     const handlePrivate = () => setIsPrivate(document.querySelector("#private").checked);
     const handleDestructive = () => setIsDestructive(document.querySelector("#destructive").checked);
-    const handleShared = () => setIsShared(document.querySelector("#shared").checked);
     
     const handleSubmit = () => {
         const name = document.querySelector("#name");
@@ -124,9 +123,7 @@ export default () => {
                     <input type="checkbox" id="private" onChange={ () => handlePrivate() } />
                     <label for="private">Private</label>
                     <input type="checkbox" id="destructive" onChange={ () => handleDestructive() } />
-                    <label for="destructive">Destructive</label>
-                    <input type="checkbox" id="shared" onChange={ () => handleShared() } />
-                    <label for="shared">Shared</label><br />
+                    <label for="destructive">Destructive</label><br />
                     <input type="button" id="submit" value="Create" onClick={ () => handleSubmit() } />
                 </Create>
             </Container>
