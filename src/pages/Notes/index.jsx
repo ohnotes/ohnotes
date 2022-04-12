@@ -56,7 +56,7 @@ export default () => {
 
                 .catch(e => String(e).includes("404") ? window.location.href = '/404' : window.location.href = "/403");
 
-        }, 300);
+        }, 3000);
 
         return () => clearInterval(interval);
     }, []);
