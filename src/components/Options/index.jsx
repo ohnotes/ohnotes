@@ -25,7 +25,7 @@ export default props => {
                 get(`/note/${ id }?pass=${ pass }`)
                     .then(r =>
                         navigator.clipboard.writeText(
-                            `${ window.location.href }${ r.data.password !== undefined ? '?pass=' + r.data.password : "" }`
+                            `${ window.location.href }${ r.data.password !== "" ? '?pass=' + r.data.password : "" }`
                         ));
             }
         });
@@ -37,7 +37,6 @@ export default props => {
     const handleSettingsModal = () => {
         setMenuOpen(false);
         setSettingsModalOpen(true);
-
     }
 
     if (props.standard) {

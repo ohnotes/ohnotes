@@ -62,8 +62,6 @@ export const Menu = styled.div`
         font-size: 16pt;
         margin-left: 20px;
         margin-top: 35px;
-        border-bottom: 2px solid #6544DB;
-        padding: 0 0 10px 15px;
         width: 70%;
     }
 

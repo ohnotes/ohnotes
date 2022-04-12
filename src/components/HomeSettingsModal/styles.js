@@ -106,12 +106,8 @@ export const Container = styled.div`
 
     @media (max-width: 800px) {
         section:first-child {
-            width: 100vw;
-            height: 100vh;
-        }
-
-        img {
-            width: 36px;
+            width: 100%;
+            height: 100%;
         }
 
         h1 {

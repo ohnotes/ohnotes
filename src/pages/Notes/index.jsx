@@ -9,6 +9,7 @@ export default () => {
     const [ loaded, setLoaded ] = useState(false);
     const [ isOwner, setIsOwner ] = useState(false);
     const [ standard, setStandard ] = useState(false);
+    const [ typed, setTyped ] = useState(false);
     const id = window.location.pathname.split("/")[2];
     const pass = window.location.search.split("=")[1];
 
@@ -34,7 +35,7 @@ export default () => {
                 document.title = r.data.name;
             })
             
-            .catch(e => String(e).includes("404") ? window.location.href = "/404" : null);
+            .catch(e => window.location.href = "/404");
         
         get(`/destructive/${ id }`)
             .catch(() => window.location.href = "/403");
@@ -56,13 +57,11 @@ export default () => {
     }, [window.onload]);
 
     useEffect(() => {
+        const text = document.querySelector("#text");
+        let interval;
+
         if (isOwner) {
-            const text = document.querySelector("#text");
-            let typed = false;
-
-            text.addEventListener("input", () => typed = true);
-
-            const interval = setInterval(() => {
+            interval = setInterval(() => {
                 if (typed) {
                     post(`/update/${ id }`, {
                         id,
@@ -71,14 +70,13 @@ export default () => {
                     })
                         .catch(() => error("You don't have permission to do that."))
 
-                    typed = false;    
+                    setTyped(false);
                 }
+
             }, 1000);
 
-            return () => clearInterval(interval);
-
         } else {
-            const interval = setInterval(() => {
+            interval = setInterval(() => {
                 const text = document.querySelector("#text");
 
                 get(`/note/${ id }?pass=${ pass }`)
@@ -91,9 +89,9 @@ export default () => {
                     .catch(e => String(e).includes("404") ? window.location.href = '/404' : null);
 
             }, 2000);
-
-            return () => clearInterval(interval);
         }
+        
+        return () => clearInterval(interval);
     });
 
     return (
@@ -106,10 +104,15 @@ export default () => {
                     </section>
                 }
                 <textarea
-                    placeholder="Now, you can type what you want, have fun! :)"
+                    placeholder={
+                        isOwner
+                        ? "Now, you can type what you want, have fun! :)"
+                        : "You are in read-only, wait to note owner write something."
+                    }
                     id="text"
                     spellCheck="false"
                     disabled={ !loaded || !isOwner }
+                    onInput={ () => setTyped(true) }
                 />
             </Container>
         </>

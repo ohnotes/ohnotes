@@ -12,26 +12,22 @@ export default props => {
     const pass = window.location.search.split("=")[1];
 
     useEffect(() => {
-        (async () => {
-            get(`/note/${ props.id }?pass=${ pass }`)
-                .then(r => {
-                    document.querySelector("#name").value = r.data.name;
-                    document.querySelector("#observation").value = r.data.observation;
+        get(`/note/${ props.id }?pass=${ pass }`)
+            .then(r => {
+                document.querySelector("#name").value = r.data.name;
+                document.querySelector("#observation").value = r.data.observation;
 
-                    setIsPrivate(r.data.private);
-                });
+                setIsPrivate(r.data.private);
+            });
 
-            get(`/getNotes`)
-                .then(r => r.data.forEach(i => i.id === props.id ? setIsOwner(true) : setIsOwner(false) ));
-        })();
+        get(`/getNotes`)
+            .then(r => r.data.forEach(i => i.id === props.id ? setIsOwner(true) : setIsOwner(false) ));
 
     }, [window.onload])
     
     const handlePrivate = () => setIsPrivate(document.querySelector("#private").checked);
     
     const handleSaveSettings = () => {
-        props.open(false);
-
         const name = document.querySelector("#name").value;
         const observation = document.querySelector("#observation").value;
         const password = document.querySelector("#password");
@@ -49,14 +45,17 @@ export default props => {
         })
             .then(() => success("Saved succesfully."))
             .catch(() => error("You don't have permission to do that."));
+        
+        props.open(false);
     }
 
     const handleDelete = () => {
-        props.open(false);
-
         if (confirm("Are you sure you want to delete the note?")) {
             post(`/delete/${ props.id }`, {})
-                .catch(() => error("You don't have permission to do that."));    
+                .then(() => window.location.href = '/')
+                .catch(() => error("You don't have permission to do that."));
+        
+            props.open(false);
         }
     }
 
