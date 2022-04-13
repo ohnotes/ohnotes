@@ -1,10 +1,17 @@
-<br><br>
+## ❗ Important
 [API repository](https://github.com/ohnotes/api)
 
 <br><br>
 ## 📖 Summary
+[Changelog](#changelog)<br>
 [FAQ](#faq)<br>
 [Setup](#setup)<br>
+
+<br><a name="changelog"></a>
+## ♻️ Changelog
+- Fixed functionality of 'destructive' messages.
+- Little fixes around the project.
+- Fixes on [API](https://github.com/ohnotes/api)
 
 <br><a name="faq"></a>
 ## ❓ FAQ

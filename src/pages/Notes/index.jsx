@@ -24,7 +24,9 @@ export default () => {
                 } else {
                     const valid = JSON.parse(history);
  
-                    valid.forEach(i => i === id ? null : localStorage.setItem("recent", JSON.stringify([ ...valid, id ])));
+                    valid.forEach(i => i === id
+                        ? {}
+                        : localStorage.setItem("history", JSON.stringify([ ...valid, id ])));
 
                 }
                 
@@ -35,7 +37,7 @@ export default () => {
                 document.title = r.data.name;
             })
             
-            .catch(e => window.location.href = "/404");
+            .catch(() => window.location.href = "/404");
         
         get(`/destructive/${ id }`)
             .catch(() => window.location.href = "/403");

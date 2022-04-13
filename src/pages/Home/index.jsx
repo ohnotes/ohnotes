@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Container, Create } from './styles';
 import { post } from 'axios';
 import { ToastContainer } from 'react-toastify';
@@ -15,7 +15,6 @@ export default () => {
     const [ ownedModal, setOwnedModalOpen ] = useState(false);
     const [ isPrivate, setIsPrivate ] = useState(false);
     const [ isDestructive, setIsDestructive ] = useState(false);
-    const [ isShared, setIsShared ] = useState(false);
     const [ standard, setStandard ] = useState(true);
     const [ owned, setOwned ] = useState([]);
 
@@ -89,7 +88,6 @@ export default () => {
             createdAt: new Date().toUTCString(),
             destructive: isDestructive,
             turns: parseInt(turns.value),
-            shared: isShared
         })
             .then(r => window.location = `/notes/${ r.data.id }`)
     }
