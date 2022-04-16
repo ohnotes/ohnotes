@@ -14,6 +14,7 @@ export const Standard = styled.div`
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        align-content: center;
     }
 
     nav h1 {
@@ -29,7 +30,6 @@ export const Standard = styled.div`
         margin: 0;
         display: flex;
         flex-direction: row;
-        justify-content: center;
     }
 
     nav ul li {
@@ -59,6 +59,23 @@ export const Standard = styled.div`
 
     nav ul li:last-child {
         margin-right: 0;
+    }
+
+    nav input[type="button"] {
+        font-size: 12pt;
+        padding: 10px 15px;
+        border-radius: 5px;
+        background: #6544DB;
+        color: white;
+        font-weight: 500;
+        border: none;
+        transition: all ease 0.5s;
+        cursor: pointer;
+    }
+    
+    nav input[type="button"]:hover {
+        opacity: 0.7;
+        transform: scale(1.05);
     }
 `;
 

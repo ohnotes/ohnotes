@@ -67,11 +67,15 @@ export default props => {
                 <nav>
                     <h1>Ohnotes</h1>
                     <ul>
+                        <li onClick={ handleOpenSettings }>Settings</li>
                         <li onClick={ handleOpenOwned }>Owned</li>
                         <li onClick={ handleOpenHistory }>History</li>
-                        <li onClick={ handleOpenSettings }>Settings</li>
-                        <li onClick={ handleSource }>Source</li>
                     </ul>
+                    <input
+                        type="button"
+                        value="Source"
+                        onClick={ handleSource }
+                    />
                 </nav>
             </Standard>
         );

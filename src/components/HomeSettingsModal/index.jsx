@@ -76,7 +76,7 @@ export default props => {
                     <input
                         type="button"
                         value="Copy"
-                        style={{ 'background': '#49d64f' }}
+                        style={{ 'color': '#51ed57' }}
                         onClick={ () => handleCopyUser() }
                     />
                 </section>
@@ -88,7 +88,7 @@ export default props => {
                     <input
                         type="button"
                         value="Clear"
-                        style={{ 'background': '#e0344b' }}
+                        style={{ 'color': '#e0344b' }}
                         onClick={ () => handleClearHistory() }
                     />
                 </section>
@@ -104,7 +104,7 @@ export default props => {
                     <input
                         type="button"
                         value="Clear"
-                        style={{ 'background': '#e0344b' }}
+                        style={{ 'color': '#e0344b' }}
                         onClick={ () => handleClearNotes() }
                     />
                 </section>
@@ -120,7 +120,7 @@ export default props => {
                     <input
                         type="button"
                         value="Wipe"
-                        style={{ 'background': '#e0344b' }}
+                        style={{ 'color': '#e0344b' }}
                         onClick={ () => handleWipe() }
                     />
                 </section>

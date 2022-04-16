@@ -94,15 +94,16 @@ export const Container = styled.div`
 
     section input[type="button"] {
         border: none;
-        padding: 10px 10px;
+        background: none;
         border-radius: 5px;
         transition: all ease 0.5s;
-        font-size: 11.5pt;
+        font-size: 12pt;
         color: white;
     }
 
     section input[type="button"]:hover {
-        opacity: 0.8;
+        transform: scale(1.1);
+        opacity: 0.5;
     }
 
     @media (max-width: 800px) {
