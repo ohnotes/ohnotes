@@ -8,10 +8,8 @@
 [Setup](#setup)<br>
 
 <br><a name="changelog"></a>
-## ♻️ Changelog
-- Fixed functionality of 'destructive' messages.
-- Little fixes around the project.
-- Fixes on [API](https://github.com/ohnotes/api)
+## ♻️ Changelog (v0.1.1)
+- Added new style and some bug fixes
 
 <br><a name="faq"></a>
 ## ❓ FAQ
