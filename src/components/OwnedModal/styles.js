@@ -14,13 +14,13 @@ export const Container = styled.div`
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 30vw;
+        width: 35vw;
         height: 70vh;
         text-align: center;
-        background-color: rgb(30, 30, 30);
+        background-color: rgb(24, 24, 24);
         border-radius: 5px;
         color: white;
-        animation: 0.5s ease-out slideModal;
+        animation: 500ms ease-in-out slideModal;
     }
     
     @keyframes slideModal {
@@ -52,8 +52,8 @@ export const Container = styled.div`
     
     h2 {
         color: white;
-        font-size: 13pt;
-        font-weight: 300;
+        font-size: 17pt;
+        font-weight: 400;
         margin-top: -15px;
     }
 
@@ -90,7 +90,7 @@ export const Container = styled.div`
         height: 100%;
 
         &::-webkit-scrollbar {
-            background-color: rgb(25, 25, 25);
+            background-color: rgb(16, 16, 16);
             border-radius: 5px;
             width: 7px;
         }
@@ -105,7 +105,7 @@ export const Container = styled.div`
         color: rgb(240, 240, 240);
         cursor: pointer;
         transition: all ease 0.5s;
-        font-size: 11pt;
+        font-size: 13pt;
     }
 
     td:hover {
@@ -124,16 +124,21 @@ export const Container = styled.div`
         }
 
         h1 {
-            font-size: 22pt;
+            font-size: 24pt;
+            margin-top: 80px;
         }
 
         h2 {
-            font-size: 16pt;
+            font-size: 19pt;
         }
 
         th {
             width: 100%;
             height: 100%;
+        }
+
+        td {
+            font-size: 14pt;
         }
     }
 `;

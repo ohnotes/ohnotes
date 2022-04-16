@@ -118,11 +118,11 @@ export default () => {
                         placeholder="Turns"
                         disabled={ !isDestructive }
                     /><br />
-                    <input type="checkbox" id="private" onChange={ () => handlePrivate() } />
+                    <input type="checkbox" id="private" onChange={ handlePrivate } />
                     <label for="private">Private</label>
-                    <input type="checkbox" id="destructive" onChange={ () => handleDestructive() } />
+                    <input type="checkbox" id="destructive" onChange={ handleDestructive } />
                     <label for="destructive">Destructive</label><br />
-                    <input type="button" id="submit" value="Create" onClick={ () => handleSubmit() } />
+                    <input type="button" id="submit" value="Create" onClick={ handleSubmit } />
                 </Create>
             </Container>
         </>

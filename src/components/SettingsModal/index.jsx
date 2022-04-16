@@ -3,8 +3,6 @@ import { Container } from './styles';
 import { get, post } from 'axios';
 import { success, error } from '../../utils/notify';
 import Close from '../../assets/close.svg';
-import Save from '../../assets/save.svg';
-import Delete from '../../assets/delete.svg';
 
 export default props => {
     const [ isOwner, setIsOwner ] = useState(false);
@@ -64,10 +62,20 @@ export default props => {
             <section>
                 <img src={ Close } width="24" onClick={ () => props.open(false) } />
                 { isOwner &&
-                    <>
-                        <img src={ Delete } width="24" onClick={ () => handleDelete() }/>
-                        <img src={ Save } width="24" onClick={ () => handleSaveSettings() } />
-                    </>
+                    <div id="owner">
+                        <input
+                            type="button"
+                            id="save"
+                            value="Save"
+                            onClick={ handleSaveSettings }
+                        />
+                        <input
+                            type="button"
+                            id="delete"
+                            value="Delete"
+                            onClick={ handleDelete }
+                        />
+                    </div>
                 }
                 <h1>Settings</h1>
                 <input type="text" id="name" placeholder="Name" disabled={ !isOwner } /><br />

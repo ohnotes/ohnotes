@@ -1,9 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400&display=swap'); 
-    
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300;400;500&family=Lato:wght@900&display=swap');
+
     *, body {
-        font-family: 'JetBrains Mono', monospace !important;
+        font-family: 'Fira Sans Condensed', sans-serif;
     }
 `

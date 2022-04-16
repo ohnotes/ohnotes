@@ -50,7 +50,11 @@ export default props => {
     return (
         <Container>
             <section>
-                <img src={ Close } width="24" id="close" onClick={ () => props.open(false) } />
+                <img src={ Close }
+                    width="24"
+                    id="close"
+                    onClick={ () => props.open(false) }
+                />
                 <h1>Settings</h1>
                 <h2>Interface</h2>
                 <section>
@@ -69,14 +73,24 @@ export default props => {
                         User ID
                         <img src={ Info } width="20" title="Copy user unique identification." />
                     </span>
-                    <input type="button" value="Copy" style={{ 'color': '#49d64f' }} onClick={ () => handleCopyUser() } />
+                    <input
+                        type="button"
+                        value="Copy"
+                        style={{ 'background': '#49d64f' }}
+                        onClick={ () => handleCopyUser() }
+                    />
                 </section>
                 <section>
                     <span>
                         Clear history
                         <img src={ Info } width="20" title="Clear all access history." />
                     </span>
-                    <input type="button" value="Clear" style={{ 'color': '#e0344b' }} onClick={ () => handleClearHistory() } />
+                    <input
+                        type="button"
+                        value="Clear"
+                        style={{ 'background': '#e0344b' }}
+                        onClick={ () => handleClearHistory() }
+                    />
                 </section>
                 <section>
                     <span>
@@ -87,7 +101,12 @@ export default props => {
                             title="Clear all notes created from your user (including on database)."
                         />
                     </span>
-                    <input type="button" value="Clear" style={{ 'color': '#e0344b' }} onClick={ () => handleClearNotes() } />
+                    <input
+                        type="button"
+                        value="Clear"
+                        style={{ 'background': '#e0344b' }}
+                        onClick={ () => handleClearNotes() }
+                    />
                 </section>
                 <section>
                     <span>
@@ -98,7 +117,12 @@ export default props => {
                             title="Wipe all your data, including created notes and user information, creating a new information."
                         />
                     </span>
-                    <input type="button" value="Wipe" style={{ 'color': '#e0344b' }} onClick={ () => handleWipe() } />
+                    <input
+                        type="button"
+                        value="Wipe"
+                        style={{ 'background': '#e0344b' }}
+                        onClick={ () => handleWipe() }
+                    />
                 </section>
             </section>
         </Container>

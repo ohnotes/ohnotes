@@ -16,12 +16,12 @@ export const Container = styled.div`
         transform: translate(-50%, -50%);
         width: 35vw;
         height: 70vh;
-        background-color: rgb(30, 30, 30);
+        background-color: rgb(24, 24, 24);
         text-align: center;
         padding-top: 1px;
         border-radius: 5px;
         color: white;
-        animation: 0.5s ease-out slideModal;
+        animation: 0.5s ease-in-out slideModal;
     }
 
     @keyframes slideModal {
@@ -35,9 +35,7 @@ export const Container = styled.div`
         top: 20px;
         right: 20px;
         cursor: pointer;
-        border-radius: 50%;
         transition: all ease 0.5s;
-        padding: 3px;
     }
     
     #close:hover {
@@ -51,8 +49,8 @@ export const Container = styled.div`
     }
 
     h2 {
-        font-size: 14pt;
-        font-weight: 300;
+        font-size: 17pt;
+        font-weight: 400;
     }
 
     section h2:not(:first-of-type) {
@@ -67,7 +65,7 @@ export const Container = styled.div`
     }
 
     span {
-        font-size: 11pt;
+        font-size: 12pt;
     }
 
     span img {
@@ -87,6 +85,7 @@ export const Container = styled.div`
         background: rgb(20, 20, 20);
         outline: none;
         transition: all ease 0.5s;
+        font-size: 12pt;
     }
 
     section select:focus {
@@ -95,13 +94,15 @@ export const Container = styled.div`
 
     section input[type="button"] {
         border: none;
-        background: none;
-        padding: 0;
+        padding: 10px 10px;
+        border-radius: 5px;
         transition: all ease 0.5s;
+        font-size: 11.5pt;
+        color: white;
     }
 
     section input[type="button"]:hover {
-        transform: scale(1.2);
+        opacity: 0.8;
     }
 
     @media (max-width: 800px) {
@@ -111,23 +112,32 @@ export const Container = styled.div`
         }
 
         h1 {
-            font-size: 22pt;
+            font-size: 24pt;
+            margin-top: 80px;
         }
 
         h2 {
-            font-size: 18pt;
+            font-size: 19pt;
+        }
+
+        #close {
+            width: 40px;
         }
 
         span {
-            font-size: 13pt;
+            font-size: 15pt;
         }
 
         span img {
             opacity: 0;
         }
 
-        input[type="button"], select {
-            font-size: 13pt;
+        section input[type="button"], section select {
+            font-size: 14pt;
+        }
+
+        section input[type="button"] {
+            padding: 10px 20px;
         }
 
         section h2:not(:first-of-type) {

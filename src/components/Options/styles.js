@@ -56,12 +56,12 @@ export const Menu = styled.div`
 
     section {
         position: fixed;
-        animation: 0.5s forwards slide;
+        animation: 750ms forwards slide;
         top: 0;
         left: 0;
-        width: 80%;
-        height: 100%;
-        background-color: rgb(10, 10, 10, 0.8);
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(10, 10, 10);
     }
 
     img {
@@ -77,12 +77,12 @@ export const Menu = styled.div`
     }
 
     nav ul li:first-of-type {
-        margin-top: 60px;
+        margin-top: 100px;
     }
 
     nav ul li {
         color: white;
-        font-size: 16pt;
+        font-size: 20pt;
         margin-left: 60px;
         margin-top: 35px;
         width: 70%;
@@ -93,13 +93,28 @@ export const Menu = styled.div`
         color: white;
     }
 
+    nav ul li:after {
+        content: '';
+        display: block;
+        transform: scaleX(0);
+        border-bottom: 3px solid #6544DB;
+        animation: slideLi forwards 1s;
+        padding: 5px 0;
+    }
+
     @keyframes slide {
         0% {
             transform: translateX(100%);
         }
 
         100% {
-            transform: translateX(25%);
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideLi {
+        to {
+            transform: scaleX(1);
         }
     }
 `;

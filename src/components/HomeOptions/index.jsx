@@ -2,9 +2,6 @@ import { get } from 'axios';
 import { useState } from 'react';
 import { error } from '../../utils/notify';
 import { Standard, Hamburguer, Menu } from './styles';
-import History from '../../assets/history.svg';
-import List from '../../assets/list.svg';
-import Settings from '../../assets/settings.svg';
 import Close from '../../assets/close.svg';
 import HamburguerIcon from '../../assets/hamburguer.svg';
 
@@ -54,18 +51,28 @@ export default props => {
             });
     }
 
+    const handleOpenSettings = () => props.settingsopen(true);
+
     const handleSettingsBurger = () => {
         setMenuOpen(false);
 
         props.settingsopen(true);
     }
 
+    const handleSource = () => window.location.href = 'https://github.com/ohnotes';
+
     if (props.standard) {
         return (
             <Standard>
-                <img src={ Settings } title="Settings" width="24" onClick={ () => props.settingsopen(true) } />
-                <img src={ History } title="History" width="24" onClick={ () => handleOpenHistory() } />
-                <img src={ List } title="Owned" width="24" onClick={ () => handleOpenOwned() } />
+                <nav>
+                    <h1>Ohnotes</h1>
+                    <ul>
+                        <li onClick={ handleOpenOwned }>Owned</li>
+                        <li onClick={ handleOpenHistory }>History</li>
+                        <li onClick={ handleOpenSettings }>Settings</li>
+                        <li onClick={ handleSource }>Source</li>
+                    </ul>
+                </nav>
             </Standard>
         );
 

@@ -1,7 +1,12 @@
 import styled from 'styled-components';
+import Scene from '../../assets/scene.svg';
+import SceneMobile from '../../assets/scene_mobile.svg';
 
 export const Container = styled.div`
-    background-color: rgb(20, 20, 20);
+    background: url(${ Scene });
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgb(16, 16, 16);
     position: absolute;
     top: 0;
     left: 0;
@@ -10,21 +15,28 @@ export const Container = styled.div`
     margin: 0;
     text-align: center;
     display: inline-flex;
+
+    @media (max-width: 800px) {
+        background: url(${ SceneMobile });
+        background-size: cover;
+    }
 `;
 
 
 export const Create = styled.div`
     text-align: center;
-    margin: 0 auto;
-    margin-top: 15vh;
-    background-color: rgb(35, 35, 35);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(24, 24, 24);
     width: 450px;
-    height: 420px;
+    height: 450px;
     border-radius: 6px;
 
     h1 {
         color: white;
-        font-size: 20pt;
+        font-size: 22pt;
         font-weight: 500;
     }
 
@@ -34,9 +46,9 @@ export const Create = styled.div`
 
     input[type="text"], input[type="password"], input[type="number"] {
         border: 1px solid #6544DB;
-        background-color: rgb(25, 25, 25);
+        background-color: rgb(25, 25, 25, 0.9);
         color: white;
-        font-size: 11pt;
+        font-size: 12pt;
         width: 80%;
         text-align: left;
         border-radius: 2px;
@@ -67,8 +79,7 @@ export const Create = styled.div`
     }
 
     label {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 11pt;
+        font-size: 12pt;
         color: white;
         cursor: pointer;
         margin: 0 10px 0 8px;
@@ -87,6 +98,7 @@ export const Create = styled.div`
         transform: translateY(3px);
         transition: all ease 0.5s;
         margin: 30px 0 0 10px;
+        cursor: pointer;
     }
 
     input[type="checkbox"]:not(:checked):hover {
@@ -109,6 +121,8 @@ export const Create = styled.div`
         padding: 12px 20px;
         margin-top: 25px;
         transition: all ease 1s;
+        font-size: 12pt;
+        cursor: pointer;
     }
 
     input[type="button"]:hover {
@@ -117,18 +131,20 @@ export const Create = styled.div`
 
     @media (max-width: 800px) {
         background-color: transparent;
-        margin-top: 10vh;
+        width: 90vw;
+        height: 50vh;
+        top: 45%;
 
         h1 {
-            font-size: 25pt;
+            font-size: 24pt;
         }
 
         input[type="text"], input[type="password"], input[type="number"] {
-            font-size: 12pt;
+            font-size: 12.5pt;
         }
 
         label {
-            font-size: 13pt;
+            font-size: 14pt;
         }
 
         input[type="checkbox"] {

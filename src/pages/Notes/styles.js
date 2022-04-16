@@ -19,6 +19,7 @@ export const Container = styled.div`
         border: none;
         padding: 10px 0 0 10px;
         color: rgb(240, 240, 240);
+        font-size: 12pt;
     }
 
     section {
@@ -40,7 +41,7 @@ export const Container = styled.div`
 
     @media (max-width: 800px) {
         textarea {
-            font-size: 12pt;
+            font-size: 13pt;
         }
     }
 `;

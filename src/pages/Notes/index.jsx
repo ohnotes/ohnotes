@@ -25,7 +25,7 @@ export default () => {
                     const valid = JSON.parse(history);
  
                     valid.forEach(i => i === id
-                        ? {}
+                        ? null
                         : localStorage.setItem("history", JSON.stringify([ ...valid, id ])));
 
                 }

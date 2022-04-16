@@ -14,9 +14,9 @@ export const Container = styled.div`
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 400px;
-        height: 380px;
-        background-color: rgb(30, 30, 30);
+        width: 35vw;
+        height: 70vh;
+        background-color: rgb(24, 24, 24);
         text-align: center;
         padding-top: 1px;
         border-radius: 5px;
@@ -39,23 +39,24 @@ export const Container = styled.div`
         transition: all ease 0.5s;
         padding: 3px;
     }
-    
-    img:first-child {
-        top: 20px;
-        right: 20px;
-    }
-
-    img:not(:first-child) {
-        top: 20px;
-        left: 20px;
-    }
-
-    img:nth-last-child(2n) {
-        left: 60px;
-    }
 
     img:hover {
         transform: scale(1.15);
+    }
+
+    #owner input[type="button"] {
+        position: absolute;
+        bottom: 7.5%;
+        right: 25%;
+        font-size: 11.5pt;
+        background-color: #c43333;
+        font-weight: 400;
+    }
+
+    #owner input[type="button"]:first-child {
+        right: 50%;
+        background-color: #35c433;
+        color: white;
     }
 
     h1 {
@@ -72,7 +73,7 @@ export const Container = styled.div`
         border: 1px solid #6544DB;
         background-color: rgb(25, 25, 25);
         color: white;
-        font-size: 11pt;
+        font-size: 12pt;
         width: 80%;
         text-align: left;
         border-radius: 2px;
@@ -94,7 +95,7 @@ export const Container = styled.div`
     }
     
     label {
-        font-size: 11pt;
+        font-size: 12pt;
         color: white;
         cursor: pointer;
         margin: 0 8px;
@@ -159,15 +160,16 @@ export const Container = styled.div`
         }
 
         h1 {
-            font-size: 22pt;
+            font-size: 24pt;
+            margin-top: 80px;
         }
 
         input[type="text"] {
-            font-size: 13pt;
+            font-size: 14pt;
         }
 
         label {
-            font-size: 13pt;
+            font-size: 14pt;
         }
 
         input[type="checkbox"] {
