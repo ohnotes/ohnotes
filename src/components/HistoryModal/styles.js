@@ -133,4 +133,8 @@ export const Container = styled.div`
             font-size: 14pt;
         }
     }
+
+    @media (max-width: 800px) and (orientation: landscape) {
+        height: 200%;
+    }
 `;

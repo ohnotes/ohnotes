@@ -10,8 +10,8 @@ export const Container = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     margin: 0;
     text-align: center;
     display: inline-flex;
@@ -19,6 +19,10 @@ export const Container = styled.div`
     @media (max-width: 800px) {
         background: url(${ SceneMobile });
         background-size: cover;
+    }
+
+    @media (max-width: 800px) and (orientation: landscape) {
+        height: 150%;
     }
 `;
 
@@ -156,5 +160,9 @@ export const Create = styled.div`
             padding: 15px 25px;
             margin-top: 30px;
         }
+    }
+
+    @media (max-width: 800px) and (orientation: landscape) {
+        top: 20%;
     }
 `;

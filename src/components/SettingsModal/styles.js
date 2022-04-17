@@ -4,8 +4,8 @@ export const Container = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: rgb(10, 10, 10, 0.7);
     z-index: 1;
 
@@ -176,5 +176,9 @@ export const Container = styled.div`
             width: 20px;
             height: 20px;
         }
+    }
+
+    @media (max-width: 800px) and (orientation: landscape) {
+        height: 250%;
     }
 `;
