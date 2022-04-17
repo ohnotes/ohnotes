@@ -2,7 +2,7 @@ import { Container } from './styles';
 import Close from '../../assets/close.svg';
 
 export default props => (
-    <Container>
+    <Container data-aos="fade-in">
         <section>
             <img src={ Close } width="24" onClick={ () => props.open(false) } />
             <h1>Owned</h1>

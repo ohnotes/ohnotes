@@ -48,7 +48,7 @@ export default props => {
     }
 
     return (
-        <Container>
+        <Container data-aos="fade-in">
             <section>
                 <img src={ Close }
                     width="24"

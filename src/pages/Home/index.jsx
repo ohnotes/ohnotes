@@ -107,22 +107,24 @@ export default () => {
                     settingsopen={ setHomeSettingsModalOpen }
                 />
                 <Create id="create">
-                    <h1>Create</h1>
-                    <input type="text" id="name" placeholder="Name" autoComplete="off" required /><br />
-                    <input type="text" id="observation" placeholder="Observation" autoComplete="off" /><br />
-                    <input type="password" id="password" placeholder="Password" disabled={ !isPrivate } /><br />
-                    <input
-                        type="number"
-                        id="turns"
-                        min="0"
-                        placeholder="Turns"
-                        disabled={ !isDestructive }
-                    /><br />
-                    <input type="checkbox" id="private" onChange={ handlePrivate } />
-                    <label for="private">Private</label>
-                    <input type="checkbox" id="destructive" onChange={ handleDestructive } />
-                    <label for="destructive">Destructive</label><br />
-                    <input type="button" id="submit" value="Create" onClick={ handleSubmit } />
+                    <div data-aos="zoom-in-up">
+                        <h1>Create</h1>
+                        <input type="text" id="name" placeholder="Name" autoComplete="off" required /><br />
+                        <input type="text" id="observation" placeholder="Observation" autoComplete="off" /><br />
+                        <input type="password" id="password" placeholder="Password" disabled={ !isPrivate } /><br />
+                        <input
+                            type="number"
+                            id="turns"
+                            min="0"
+                            placeholder="Turns"
+                            disabled={ !isDestructive }
+                        /><br />
+                        <input type="checkbox" id="private" onChange={ handlePrivate } />
+                        <label for="private">Private</label>
+                        <input type="checkbox" id="destructive" onChange={ handleDestructive } />
+                        <label for="destructive">Destructive</label><br />
+                        <input type="button" id="submit" value="Create" onClick={ handleSubmit } />
+                    </div>
                 </Create>
             </Container>
         </>

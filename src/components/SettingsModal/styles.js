@@ -21,15 +21,8 @@ export const Container = styled.div`
         padding-top: 1px;
         border-radius: 5px;
         color: white;
-        animation: 0.5s ease-out slideModal;
     }
     
-    @keyframes slideModal {
-        from {
-            transform: translate(-50%, -100%)
-        }
-    }
-
     img {
         position: absolute;
         top: 20px;

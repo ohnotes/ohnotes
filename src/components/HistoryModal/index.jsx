@@ -11,7 +11,7 @@ export default props => {
     , [window.onload]);
 
     return (
-        <Container>
+        <Container data-aos="fade-in">
             <section>
                 <img src={ Close } width="24" onClick={ () => props.open(false) } />
                 <h1>History</h1>

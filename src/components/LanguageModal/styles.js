@@ -20,13 +20,6 @@ export const Container = styled.div`
         background-color: rgb(30, 30, 30);
         border-radius: 5px;
         color: white;
-        animation: 0.5s ease-out slideModal;
-    }
-
-    @keyframes slideModal {
-        from {
-            transform: translate(-50%, -100%);
-        }
     }
 
     img {
